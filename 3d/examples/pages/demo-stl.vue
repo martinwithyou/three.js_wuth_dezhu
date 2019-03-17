@@ -1,0 +1,38 @@
+<template>
+    <demo-block :vue-code="code" :html-code="htmlCode">
+        <template slot="preview">
+            <model-stl :backgroundAlpha="0"
+                @on-load="onLoad"
+                src="static/models/stl/gear.stl"></model-stl>
+            <div class="example-loading" v-show="loading"></div>
+        </template>
+    </demo-block>
+</template>
+
+<script>
+import DemoBlock from '../components/demo-block';
+import ModelStl from '../../src/model-stl.vue'
+
+const code = ``
+const htmlCode = ``
+
+export default {
+    name: 'demo-stl',
+    data() {
+        return {
+            code,
+            htmlCode,
+            loading: true
+        }
+    },
+    methods: {
+        onLoad() {
+            this.loading = false;
+        }
+    },
+    components: {
+        ModelStl,
+        DemoBlock
+    }
+}
+</script>
